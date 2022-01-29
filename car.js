@@ -15,7 +15,13 @@ export default class Car{
         this.speed += 5;
     }
     brake(){
-        this.speed -= 5;
+        //original code:
+        //this.speed -= 5
+        if(this.speed < 5){
+            this.speed = 0;
+        }else{
+            this.speed -= 5;
+        }
     }
     step(){
         this.odometer += this.speed;

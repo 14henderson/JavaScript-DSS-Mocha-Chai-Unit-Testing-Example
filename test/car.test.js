@@ -31,6 +31,11 @@ describe("Testing acceleration functions of car", function(){
 });
 
 describe("Testing brake functions of car", function(){
+    it("Test should not allow negative speed", function(){
+        test_car = new Car();
+        test_car.brake();
+        assert.equal(test_car.speed, 0);
+    });
     it("Testing brake once", function(){
         test_car = new Car();
         test_car.accelerate();
@@ -49,12 +54,6 @@ describe("Testing brake functions of car", function(){
         assert.equal(test_car.speed, 10);
     });
 
-    it("Test should not allow negative speed", function(){
-        test_car = new Car();
-        test_car.brake();
-        assert.equal(test_car.speed, 0);
-    });
-
     it("Test multiple brakes at zero", function(){
         test_car = new Car();
         for(let i=0; i<3; i++){
@@ -63,16 +62,3 @@ describe("Testing brake functions of car", function(){
         assert.equal(test_car.speed, 0);
     });
 });
-
-
-
-//
-
-
-
-
-/*
-test('Testing initial values of car', () => {
-    expect(test_car.speed).toBe(0);
-});
-*/
